@@ -1,0 +1,2 @@
+[edurekaservers]
+172.31.87.177 ansible_user=ec2-user
