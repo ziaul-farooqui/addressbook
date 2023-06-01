@@ -1,15 +1,13 @@
 
 pipeline{
-    tools{
-       
+    tools{       
         maven 'mymaven'
     }
 	agent any
       stages{
            stage('Checkout the code'){
-	    
                steps{
-		 echo 'cloning the repo'
+				 echo 'cloning the repo'
                  git 'https://github.com/Sonal0409/DevOpsClassCodes.git'
               }
           }
@@ -18,13 +16,13 @@ pipeline{
               steps{
                   echo 'complie the code again..'
                   sh 'mvn compile'
-	      }
+				}
           }
           stage('CodeReview'){
 		  
               steps{
 		    
-		  echo 'codeReview'
+				  echo 'codeReview'
                   sh 'mvn pmd:pmd'
               }
           }
