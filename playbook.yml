@@ -11,3 +11,5 @@
     service: name=docker state=started
   - name: Copy war file to host server
     copy: src=addressbook.war dest=/tmp/ansiblehost
+  - name: Copy dockerfile to host server
+    copy: src=Dockerfile dest=/tmp/ansiblehost
