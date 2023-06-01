@@ -9,7 +9,14 @@
      - docker
   - name: start docker service
     service: name=docker state=started
+  - name: Remove running container
+    command: docker rm -f addressbook
+    ignore_errors: true
   - name: Copy war file to host server
     copy: src=addressbook.war dest=/tmp/ansiblehost
   - name: Copy dockerfile to host server
     copy: src=Dockerfile dest=/tmp/ansiblehost
+  - name: Build the dockerfile
+    command: chdir=/tmp/ansiblehost docker build -t addressbook .
+  - name: Run the image
+    command: docker run -d -p 8080:8080 addressbook
