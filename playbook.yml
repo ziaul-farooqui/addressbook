@@ -4,9 +4,9 @@
   tasks:
   - name: install packages
     package: name={{item}} state=present
-	loop:
-	 - git
-	 - docker
+    loop:
+     - git
+     - docker
   - name: start docker service
     service: name=docker state=started
   - name: Copy war file to host server
